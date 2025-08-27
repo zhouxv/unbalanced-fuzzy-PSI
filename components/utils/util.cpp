@@ -256,7 +256,6 @@ flattenBlocks(const std::vector<std::vector<block>> &blockData) {
 
   for (const auto &inner_vec : blockData) {
     if (!inner_vec.empty()) {
-      // 直接使用内存拷贝，避免逐个push_back
       size_t old_size = result.size();
       result.resize(old_size + inner_vec.size());
       std::memcpy(result.data() + old_size, inner_vec.data(),

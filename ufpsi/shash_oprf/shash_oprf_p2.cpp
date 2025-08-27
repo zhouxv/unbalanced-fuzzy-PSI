@@ -47,7 +47,7 @@ void ShashOprfP2::online_hash() {
   }
   coproto::sync_wait(sockets[0].flush());
 
-  spdlog::debug("P2 Step 3 encoding接收完成");
+  spdlog::debug("P2 Step 3 finish recv");
 
   RBOKVS rb_okvs;
   rb_okvs.init(mN, OKVS_EPSILON, OKVS_LAMBDA, OKVS_SEED);

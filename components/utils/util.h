@@ -144,7 +144,7 @@ inline void padding_vec_8(vector<u64> &vec) {
 struct Monty25519Hash {
   std::size_t operator()(const osuCrypto::Sodium::Monty25519 &point) const {
     std::array<u8, 32> bytes;
-    point.toBytes(bytes.data()); // 假设 Monty25519 提供 toBytes 方法
+    point.toBytes(bytes.data());
     return std::hash<std::string_view>()(
         std::string_view(reinterpret_cast<const char *>(bytes.data()), 32));
   }
@@ -200,20 +200,11 @@ inline block get_key_from_point(const vector<u64> &point) {
   return hash_out;
 }
 
-///
-/// 计算从 `n` 个元素中选择 `k` 个元素的组合数。
-///
-/// # 参数
-/// - `n`: 总元素数量
-/// - `k`: 选择的元素数量
-///
-/// # 返回
-/// 返回 `u64` 类型的组合数。如果 `k` 大于 `n`，则返回 0。
 inline u64 combination(u64 n, u64 k) {
   if (k > n)
     return 0;
   if (k > n - k)
-    k = n - k; // C(n, k) == C(n, n-k)，减少计算量
+    k = n - k; // C(n, k) == C(n, n-k)
   u64 result = 1;
   for (u64 i = 0; i < k; ++i) {
     result = result * (n - i) / (i + 1);

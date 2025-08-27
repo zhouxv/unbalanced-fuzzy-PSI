@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED YES)
 
 set(CMAKE_PREFIX_PATH "${CMAKE_SOURCE_DIR}/out/install")
 
-# include_directories：用于指定头文件的搜索路径，而不是库文件的路径
+
 include_directories(frontend)
 include_directories(ufpsi)
 include_directories(components)

@@ -53,7 +53,6 @@ struct RBOKVSParam {
   u64 numCols() const { return static_cast<u64>(mScaler * mNumRows); }
 };
 
-// value 为 block 的 okvs
 class RBOKVS {
 public:
   // number of elements(rows)
@@ -116,7 +115,6 @@ public:
               block *output, u64 numThreads);
 };
 
-// value 为 Rist25519_number 的 okvs
 class RBOKVS_rist {
 public:
   // number of elements(rows)

@@ -155,7 +155,6 @@ blocks_to_point_vec(std::vector<osuCrypto::block> blocks) {
   return vec;
 }
 
-// 存编码信息，其余存点数据）
 inline std::vector<osuCrypto::block>
 ciphertexts_to_blocks(std::vector<std::vector<u8>> &ctx) {
   std::vector<u8> ctx1 = ctx[0];

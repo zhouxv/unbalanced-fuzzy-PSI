@@ -10,7 +10,6 @@
 
 using namespace osuCrypto;
 
-// 写个 usage
 void print_usage() {
   std::cout << "Usage:";
   std::cout << "  --p <num>         select pro type (1-6):\n";

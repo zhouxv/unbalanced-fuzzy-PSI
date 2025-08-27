@@ -26,7 +26,6 @@ void PsiSpSenderNonISH::non_isp_offline() {
       H1_sums[i].push_back(get_key_from_point(cell));
     }
   }
-  spdlog::debug("sender nonish offline 完成");
 }
 
 void PsiSpSenderNonISH::setup() {
@@ -80,8 +79,6 @@ void PsiSpSenderNonISH::setup() {
   for (auto tmp : setup_encoding) {
     prng.get<block>(tmp.data(), PAILLIER_CIPHER_SIZE_IN_BLOCK);
   }
-
-  spdlog::debug("Sender setup encoding 模拟完成");
 
   H1_sums.clear();
   H1_sums.shrink_to_fit();

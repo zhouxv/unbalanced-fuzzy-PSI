@@ -25,7 +25,6 @@ void PsiRecvNonISH::non_isp_offline() {
       H1_sums[i].push_back(get_key_from_point(cell));
     }
   }
-  spdlog::debug("sender nonish offline 完成");
 }
 
 void PsiRecvNonISH::setup() {
@@ -43,7 +42,6 @@ void PsiRecvNonISH::setup() {
 
   // ipcl::terminateContext();
 
-  // // okvr准备
   // vector<block> keys;
   // vector<vector<block>> values;
 
@@ -65,9 +63,6 @@ void PsiRecvNonISH::setup() {
   //   }
   // }
 
-  // spdlog::debug("recv setup okvr准备完成, keysize {} value size {}",
-  //               keys.size(), values.size());
-
   // RBOKVS rb_okvs;
   // rb_okvs.init(okvr_size, OKVS_EPSILON, OKVS_LAMBDA, OKVS_SEED);
 
@@ -75,8 +70,6 @@ void PsiRecvNonISH::setup() {
   //                       vector<block>(PAILLIER_CIPHER_SIZE_IN_BLOCK));
   // rb_okvs.encode(keys, values, PAILLIER_CIPHER_SIZE_IN_BLOCK,
   // setup_encoding);
-
-  // spdlog::debug("recv setup encoding完成");
 
   RBOKVS rb_okvs;
   rb_okvs.init(okvr_size, OKVS_EPSILON, OKVS_LAMBDA, OKVS_SEED);
@@ -87,8 +80,6 @@ void PsiRecvNonISH::setup() {
   for (auto tmp : setup_encoding) {
     prng.get<block>(tmp.data(), PAILLIER_CIPHER_SIZE_IN_BLOCK);
   }
-
-  spdlog::debug("recv setup encoding 模拟完成");
 
   for (auto tmp : H1_sums) {
     tmp.clear();
